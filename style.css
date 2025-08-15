@@ -1,0 +1,53 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(270deg, #ff6f61, #6a89cc, #f8ffae, #43e97b, #38f9d7, #fa709a);
+  background-size: 1200% 1200%;
+  animation: wildBgMove 3s linear infinite;
+}
+
+@keyframes wildBgMove {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 100%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 0%; }
+  100% { background-position: 0% 50%; }
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  box-shadow: 0 0 40px 0 rgba(60,60,120,0.12);
+  border-radius: 0;
+}
+
+.glass {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.12);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  pointer-events: none;
+  animation: floatShape 6s linear infinite;
+  mix-blend-mode: screen;
+}
+@keyframes floatShape {
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  25% { transform: translateY(-30vh) scale(1.3) rotate(45deg); }
+  50% { transform: translateY(-60vh) scale(1.1) rotate(90deg); }
+  75% { transform: translateY(-30vh) scale(1.2) rotate(135deg); }
+  100% { transform: translateY(0) scale(1) rotate(180deg); }
+}
